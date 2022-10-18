@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="../vendor/Nueva carpeta/alertify.js"></script>
+    <link rel="stylesheet" href="../vendor/Nueva carpeta/css/alertify.css" />
+    <script>
+      function mensaje() {
+        alertify;
+        alertify.alert("Bienvenido, Inicia sesión por favor..!", function () {
+          alertify.message("OK");
+        });
+      }
+    </script>
+  </head>
+  <body onload="mensaje();">
+    <div id="formularioLogin">
+      <form
+        id="formLogin"
+        name="formLogion"
+        action="../../controlador/ctLogin.php"
+        target="_blank"
+        method="post"
+      >
+        <label for="">
+          <h1>Login</h1>
+        </label>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtUsuario"
+            name="txtUsuario"
+            placeholder="Usuario"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="txtClave"
+            name="txtClave"
+            placeholder="Contraseña"
+          />
+          <br />
+          <input type="submit" value="Entrar" name="btnEntrar" id="btnEntrar" />
+          <input
+            type="reset"
+            value="Cancelar"
+            name="btnCancelar"
+            id="btnCancelar"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
