@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">Formulario</div>
+      <div class="card-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Nombre"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Apellido Paterno</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellidoP"
+                placeholder="Apellido Paterno"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Apellido Materno</label>
+              <input
+                type="text"
+                class="form-control"
+                id="apellidoM"
+                placeholder="Apellido Materno"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">RFC</label>
+              <input
+                type="text"
+                class="form-control"
+                id="rfc"
+                placeholder="RFC"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Edad</label>
+              <input
+                type="number"
+                class="form-control"
+                id="edad"
+                placeholder="Edad"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Fecha de Nacimiento</label>
+              <input
+                type="date"
+                class="form-control"
+                id="nacimiento"
+                placeholder="Fecha de Nacimiento"
+              />
+            </div>
+          </div>
+          <button id="send" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD58mxX1-ybFsTpDbAi4zsZ7KTNP_Pwrqo",
+        authDomain: "fir-2-bbcd8.firebaseapp.com",
+        projectId: "fir-2-bbcd8",
+        storageBucket: "fir-2-bbcd8.appspot.com",
+        messagingSenderId: "696931040959",
+        appId: "1:696931040959:web:3ec79b1b5001b15d8b100a",
+        measurementId: "G-6XXHJRT13G",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var firebaseRef = firebase.database().ref("nombre");
+      var firebaseRef = firebase.database().ref("apellidoP");
+      var firebaseRef = firebase.database().ref("apellidoM");
+      var firebaseRef = firebase.database().ref("rfc");
+      var firebaseRef = firebase.database().ref("edad");
+      var firebaseRef = firebase.database().ref("nacimiento");
+      var firebaseRef = firebase.database().ref("Formulario");
+
+      document.querySelector("#send").addEventListener("click", () => {
+        const nombre = document.getElementById("nombre").value;
+        firebaseRef.push(nombre);
+        const apellidoP = document.getElementById("apellidoP").value;
+        firebaseRef.push(apellidoP);
+        const apellidoM = document.getElementById("apellidoM").value;
+        firebaseRef.push(apellidoM);
+        const rfc = document.getElementById("rfc").value;
+        firebaseRef.push(rfc);
+        const edad = document.getElementById("edad").value;
+        firebaseRef.push(edad);
+        const nacimiento = document.getElementById("nacimiento").value;
+        firebaseRef.push(nacimiento);
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo 2</title>
+
+</head>
+<body>
+    <style>
+        #mapa{
+            height: 100%;
+        }
+        html, body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <div id="mapa"></div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFSoAGHJIrk0T_Hz9BfqKnyyChidEEcuM&callback=initMap"></script>
+    </script>
+
+        <script>
+            var mapa;
+            function initMap(){
+                mapa = new google.maps.Map(document.getElementById('mapa'),{
+                    center:{lat: 21.060785, lng: -86.779007},zoom:18
+                });
+            }
+        </script>
+</body>
+</html>
